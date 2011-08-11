@@ -61,6 +61,9 @@ jobs = [gevent.spawn(fetch_taluka,
                      key)
         for key, value in data.iteritems(), "2011"]
 gevent.joinall(jobs)
+f = open('database/data11.json', 'w')
+output = json.dumps(global_data)
+f.write(output)
 #year 10-11
 data = districtExtract(districtyear1011, "2010")
 global_data = data
@@ -69,6 +72,6 @@ jobs = [gevent.spawn(fetch_taluka,
                      key)
         for key, value in data.iteritems(), "2010"]
 gevent.joinall(jobs)
-f = open('database/data.json', 'w')
+f = open('database/data10.json', 'w')
 output = json.dumps(global_data)
 f.write(output)
